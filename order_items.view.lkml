@@ -43,11 +43,6 @@ view: order_items {
     drill_fields: [id, inventory_items.id, orders.id]
   }
 
-  dimension: months_since_signup {
-    type: number
-    sql: DATEDIFF(${users.created_raw},${orders.created_raw}) ;;
-  }
-
   measure: total_sale_price {
     type: sum
     value_format_name:  usd
