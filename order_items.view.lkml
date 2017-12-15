@@ -52,7 +52,7 @@ view: order_items {
 
   dimension: months_since_signup {
     type: number
-    sql: DATEDIFF('month',${users.created_raw},${created_raw}) ;;
+    sql: DATEDIFF(${users.created_raw},${created_raw}) ;;
   }
 
   measure: total_sale_price {
