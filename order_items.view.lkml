@@ -43,16 +43,9 @@ view: order_items {
     drill_fields: [id, inventory_items.id, orders.id]
   }
 
-  dimension_group: created {
-    #X# group_label:"Order Date"
-    type: time
-    timeframes: [time, hour, date, week, month, year, hour_of_day, day_of_week, month_num, raw, week_of_year]
-    sql: ${TABLE}.created_at ;;
-  }
-
   dimension: months_since_signup {
     type: number
-    sql: DATEDIFF(${users.created_raw},${created_raw}) ;;
+    sql: DATEDIFF(${users.created_raw},${orders.created_raw}) ;;
   }
 
   measure: total_sale_price {
