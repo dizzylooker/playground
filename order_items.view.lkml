@@ -51,7 +51,6 @@ view: order_items {
   }
 
   dimension: months_since_signup {
-    view_label: "Orders"
     type: number
     sql: DATEDIFF('month',${users.created_raw},${created_raw}) ;;
   }
