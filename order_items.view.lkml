@@ -42,4 +42,17 @@ view: order_items {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
   }
+
+  dimension_group: created {
+    #X# group_label:"Order Date"
+    type: time
+    timeframes: [time, hour, date, week, month, year, hour_of_day, day_of_week, month_num, raw, week_of_year]
+    sql: ${TABLE}.created_at ;;
+  }
+
+  dimension: months_since_signup {
+    view_label: "Orders"
+    type: number
+    sql: DATEDIFF('month',${users.created_raw},${created_raw}) ;;
+  }
 }
