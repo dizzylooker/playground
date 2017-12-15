@@ -54,4 +54,9 @@ view: order_items {
     type: number
     sql: DATEDIFF('month',${users.created_raw},${created_raw}) ;;
   }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
+  }
 }
